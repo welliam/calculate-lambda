@@ -40,4 +40,7 @@
     (test '(lambda (y) 0) (substitute-abstraction 'x 0 'y 'x)))
 
   (suite abstraction-var
-    (test 'x (abstraction-var '(lambda (x) x)))))
+    (test 'x (abstraction-var '(lambda (x) x))))
+
+  (suite abstraction-body
+    (test 'x (abstraction-body '(lambda (x) x)))))
