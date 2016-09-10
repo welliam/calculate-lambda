@@ -1,6 +1,7 @@
 (define-library (lambda-calculator main)
   (import (scheme base) (scheme write))
-  (export abstraction? application? abstraction-var
+  (export abstraction? application?
+          abstraction-var abstraction-body
           calculate-lambda
           substitute substitute-abstraction)
   (begin
@@ -16,6 +17,9 @@
 
     (define (abstraction-var abs)
       (car (car (cdr abs))))
+
+    (define (abstraction-body abs)
+      (car (cdr (cdr abs))))
 
     (define (calculate-lambda x)
       (if (application? x)
