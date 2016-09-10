@@ -17,4 +17,7 @@
   (suite abstraction?
     (test (abstraction? '(lambda (x) x)))
     (test (not (abstraction? '(lambda))))
-    (test (not (abstraction? '(lambda x x))))))
+    (test (not (abstraction? '(lambda x x)))))
+
+  (suite application?
+    (test (application? '(x x)))))
