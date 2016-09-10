@@ -24,7 +24,7 @@
         (list (substitute looking with (car in))
               (substitute looking with (car (cdr in)))))
        ((abstraction? in)
-        (let ((var (car (car (cdr in)))))
+        (let ((var (abstraction-var in)))
           (if (eq? var looking)
               in
               (list 'lambda
