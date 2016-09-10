@@ -19,10 +19,13 @@
 
     (define (calculate-lambda x)
       (if (application? x)
-          (let ((op (calculate-lambda (car x))))
-            (substitute (abstraction-var op)
-                        (car (cdr x))
-                        (calculate-lambda (car (cdr (cdr op))))))
+          (let ((op (calculate-lambda (car x)))
+                (arg (calculate-lambda (car (cdr x)))))
+            (if (abstraction? op)
+                (substitute (abstraction-var op)
+                            (car (cdr x))
+                            arg)
+                (list op arg)))
           x))
 
     (define (substitute-abstraction looking with var body)
