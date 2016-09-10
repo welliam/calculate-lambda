@@ -3,7 +3,6 @@
   (export abstraction? application? abstraction-var
           calculate-lambda
           substitute substitute-abstraction)
-
   (begin
     (define (abstraction? x)
       (and (list? x)

@@ -40,5 +40,3 @@
 
   (suite abstraction-var
     (test 'x (abstraction-var '(lambda (x) x)))))
-
-
