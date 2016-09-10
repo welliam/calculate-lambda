@@ -1,7 +1,7 @@
 (use r7rs)
 
 (load "test.scm")
-(load "lambda2.scm")
+(load "lambda.scm")
 
 (import (test main) (lambda-calculator main))
 
