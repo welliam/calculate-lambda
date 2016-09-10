@@ -13,4 +13,5 @@
 
   (suite applications
     (test '0 (calculate-lambda '((lambda (x) x) 0)))
-    (test (abstraction? '(lambda (x) x)))))
+    (test (abstraction? '(lambda (x) x)))
+    (test (not (abstraction? '(lambda))))))
