@@ -48,6 +48,6 @@
         (substitute-abstraction looking
                                 with
                                 (abstraction-var in)
-                                (car (cdr (cdr in)))))
+                                (abstraction-body in)))
        ((eq? looking in) with)
        (else in)))))
