@@ -12,7 +12,9 @@
     (test 0 (calculate-lambda 0)))
 
   (suite applications
-    (test '0 (calculate-lambda '((lambda (x) x) 0)))
+    (test '0 (calculate-lambda '((lambda (x) x) 0))))
+
+  (suite abstraction?
     (test (abstraction? '(lambda (x) x)))
     (test (not (abstraction? '(lambda))))
     (test (not (abstraction? '(lambda x x))))))
