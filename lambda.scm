@@ -21,7 +21,9 @@
         (fix x^ f))))
 
 (define (lambda-equal? x1 x2)
-  (eq? x1 x2))
+  (if (abstraction? x1)
+      (abstraction? x2)
+      (eq? x1 x2)))
 
 (define (calculate-lambda x)
   (if (application? x)
