@@ -78,3 +78,6 @@
                               env
                               n))
    (else (values (assq-default in env) env n))))
+
+(define (alpha-rename x)
+  x)
