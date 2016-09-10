@@ -20,4 +20,5 @@
     (test (not (abstraction? '(lambda x x)))))
 
   (suite application?
-    (test (application? '(x x)))))
+    (test (application? '(x x)))
+    (test (not (application? '(x . x))))))
