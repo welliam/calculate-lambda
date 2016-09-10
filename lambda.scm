@@ -52,14 +52,15 @@
   (let ((search (assq x lst)))
     (if search (cdr search) x)))
 
+(define (alpha-rename-application op arg env n)
+  (let*-values (((op-body op-env op-n) (alpha-rename-rec op env n))
+                ((arg-body arg-env arg-n) (alpha-rename-rec arg env op-n)))
+    (values (list op-body arg-body) env op-n)))
+
 (define (alpha-rename-rec in env n)
   (cond
    ((application? in)
-    (let*-values (((op-body op-env op-n)
-                   (alpha-rename-rec (car in) env n))
-                  ((arg-body arg-env arg-n)
-                   (alpha-rename-rec (car (cdr in)) env op-n)))
-      (values (list op-body arg-body) env op-n)))
+    (alpha-rename-application (car in) (car (cdr in)) env n))
    ((abstraction? in)
     (let ((var (build-var n)))
       (let-values (((renamed-body new-env new-n)
