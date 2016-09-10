@@ -111,4 +111,5 @@
     )
 
   (suite lambda-equal?
-    (test (lambda-equal? 'x 'x))))
+    (test (lambda-equal? 'x 'x))
+    (test (not (lambda-equal? 'x 'y)))))
