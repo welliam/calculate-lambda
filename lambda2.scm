@@ -9,7 +9,8 @@
            (list? (car (cdr x)))))
 
     (define (application? x)
-      (list? x))
+      (and (list? x)
+           (= (length x) 2)))
 
     (define (calculate-lambda x)
       x)))
