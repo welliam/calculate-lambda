@@ -78,4 +78,8 @@
     (test (let-values (((result env n)
                         (alpha-rename-rec '((lambda (x) x) (lambda (x) x)) '() 0)))
             (not (eq? (abstraction-body (car result))
-                      (abstraction-body (car (cdr result)))))))))
+                      (abstraction-body (car (cdr result))))))))
+
+  (suite alpha-rename
+    (test (let ((result (alpha-rename '(x x))))
+            (eq? (car result) (car (cdr result)))))))
