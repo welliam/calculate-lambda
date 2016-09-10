@@ -3,8 +3,9 @@
   (export abstraction? calculate-lambda)
   (begin
     (define (abstraction? x)
-      (and (pair? x)
-           (eq? (car x) 'lambda)))
+      (and (list? x)
+           (eq? (car x) 'lambda)
+           (= (length x) 3)))
 
     (define (calculate-lambda x)
       x)))
