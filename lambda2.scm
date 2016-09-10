@@ -1,5 +1,5 @@
 (define-library (lambda-calculator main)
-  (import (scheme base))
+  (import (scheme base) (scheme write))
   (export abstraction? application? calculate-lambda substitute)
   (begin
     (define (abstraction? x)
@@ -16,8 +16,11 @@
       x)
 
     (define (substitute looking with in)
-      (if (eq? looking in)
-          with
-          in))))
+      (cond
+       ((application? in)
+        (list (substitute looking with (car in))
+              (substitute looking with (car (cdr in)))))
+       ((eq? looking in) with)
+       (else in)))))
 
 
