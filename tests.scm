@@ -32,4 +32,9 @@
     (test '((0 0) (y y)) (substitute 'x 0 '((x x) (y y))))
     (test '(lambda (x) x) (substitute 'x 0 '(lambda (x) x)))
     (test '(lambda (y) 0) (substitute 'x 0 '(lambda (y) x)))
-    (test '((lambda (y) 0) 0) (substitute 'x 0 '((lambda (y) x) x)))))
+    (test '((lambda (y) 0) 0) (substitute 'x 0 '((lambda (y) x) x))))
+
+  (suite abstraction-var
+    (test 'x (abstraction-var '(lambda (x) x)))))
+
+
