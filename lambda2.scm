@@ -16,6 +16,8 @@
       x)
 
     (define (substitute looking with in)
-      with)))
+      (if (eq? looking in)
+          with
+          in))))
 
 
