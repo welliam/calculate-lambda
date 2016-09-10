@@ -22,7 +22,11 @@
       x)
 
     (define (substitute-abstraction looking with var body)
-      (list 'lambda (list var) body))
+      (list 'lambda
+            (list var)
+            (if (eq? looking var)
+                body
+                (substitute looking with body))))
 
     (define (substitute looking with in)
       (cond
