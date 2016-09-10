@@ -26,4 +26,5 @@
     (test (not (application? '(x x x)))))
 
   (suite substitute
-    (test 0 (substitute 'x 0 'x))))
+    (test 0 (substitute 'x 0 'x))
+    (test 'y (substitute 'x 0 'y))))
