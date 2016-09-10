@@ -82,4 +82,8 @@
 
   (suite alpha-rename
     (test (let ((result (alpha-rename '(x x))))
-            (eq? (car result) (car (cdr result)))))))
+            (eq? (car result) (car (cdr result)))))
+
+    (test (let ((result (alpha-rename '((lambda (x) x) x))))
+            (not (eq? (abstraction-var (car result))
+                      (car (cdr result))))))))
