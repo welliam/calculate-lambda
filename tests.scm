@@ -56,4 +56,7 @@
     (test 'x (alpha-rename-rec 'x '() 0))
     (test (let ((result (alpha-rename-rec '(x x) '() 0)))
             (eq? (car result)
-                 (car (cdr result)))))))
+                 (car (cdr result)))))
+    (test (let ((result (alpha-rename-rec '(lambda (x) x) '() 0)))
+            (eq? (abstraction-var result)
+                 (abstraction-body result))))))
