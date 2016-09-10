@@ -23,4 +23,7 @@
   (suite application?
     (test (application? '(x x)))
     (test (not (application? '(x . x))))
-    (test (not (application? '(x x x))))))
+    (test (not (application? '(x x x)))))
+
+  (suite substitute
+    (test 0 (substitute 'x 0 'x))))
