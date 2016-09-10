@@ -49,7 +49,8 @@
     (test 'x (abstraction-body '(lambda (x) x))))
 
   (suite build-var
-    (test (eq? (build-var 0) (build-var 0))))
+    (test (eq? (build-var 0) (build-var 0)))
+    (test (not (eq? (build-var 0) (build-var 1)))))
 
   (suite alpha-rename-rec
     (test 'x (alpha-rename-rec 'x '() 0))))
