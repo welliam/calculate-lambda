@@ -27,4 +27,5 @@
 
   (suite substitute
     (test 0 (substitute 'x 0 'x))
-    (test 'y (substitute 'x 0 'y))))
+    (test 'y (substitute 'x 0 'y))
+    (test '(0 0) (substitute 'x 0 '(x x)))))
