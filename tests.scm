@@ -46,4 +46,7 @@
     (test 'x (abstraction-var '(lambda (x) x))))
 
   (suite abstraction-body
-    (test 'x (abstraction-body '(lambda (x) x)))))
+    (test 'x (abstraction-body '(lambda (x) x))))
+
+  (suite alpha-rename-rec
+    (test 'x (alpha-rename-rec 'x '() 0))))
