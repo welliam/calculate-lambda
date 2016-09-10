@@ -100,4 +100,5 @@
     (test 0 (calculate-lambda '((lambda (f) (f 0)) (lambda (x) x)))))
 
   (suite fix
-    (test 'x (fix 'x (lambda (x) x)))))
+    (test 'x (fix 'x (lambda (x) x)))
+    (test 0 (fix 5 (lambda (x) (if (zero? x) x (- x 1)))))))
