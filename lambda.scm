@@ -21,7 +21,7 @@
         (fix x^ f))))
 
 (define (lambda-equal? x1 x2)
-  #t)
+  (eq? x1 x2))
 
 (define (calculate-lambda x)
   (if (application? x)
