@@ -57,18 +57,24 @@
                 ((arg-body arg-env arg-n) (alpha-rename-rec arg env op-n)))
     (values (list op-body arg-body) env op-n)))
 
+(define (alpha-rename-abstraction var body env n)
+  (let ((renamed (build-var n)))
+    (let-values (((renamed-body new-env new-n)
+                  (alpha-rename-rec body
+                                    (cons (cons var renamed)
+                                          env)
+                                    (+ n 1))))
+      (values (list 'lambda (list renamed) renamed-body)
+              env
+              new-n))))
+
 (define (alpha-rename-rec in env n)
   (cond
    ((application? in)
     (alpha-rename-application (car in) (car (cdr in)) env n))
    ((abstraction? in)
-    (let ((var (build-var n)))
-      (let-values (((renamed-body new-env new-n)
-                    (alpha-rename-rec (abstraction-body in)
-                                      (cons (cons (abstraction-var in) var)
-                                            env)
-                                      (+ n 1))))
-        (values (list 'lambda (list var) renamed-body)
-                env
-                new-n))))
+    (alpha-rename-abstraction (abstraction-var in)
+                              (abstraction-body in)
+                              env
+                              n))
    (else (values (assq-default in env) env n))))
