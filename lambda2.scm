@@ -1,4 +1,7 @@
 (define-library (lambda-calculator main)
   (import (scheme base))
-  (begin))
+  (export calculate-lambda)
+  (begin
+    (define (calculate-lambda x)
+      x)))
 
