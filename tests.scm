@@ -30,4 +30,5 @@
     (test 'y (substitute 'x 0 'y))
     (test '(0 0) (substitute 'x 0 '(x x)))
     (test '((0 0) (y y)) (substitute 'x 0 '((x x) (y y))))
-    (test '(lambda (x) x) (substitute 'x 0 '(lambda (x) x)))))
+    (test '(lambda (x) x) (substitute 'x 0 '(lambda (x) x)))
+    (test '(lambda (y) 0) (substitute 'x 0 '(lambda (y) x)))))
