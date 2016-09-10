@@ -28,7 +28,7 @@
             (if (abstraction? op)
                 (substitute (abstraction-var op)
                             (car (cdr x))
-                            arg)
+                            (abstraction-body op))
                 (list op arg)))
           x))
 
