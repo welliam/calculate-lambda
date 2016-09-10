@@ -80,4 +80,4 @@
    (else (values (assq-default in env) env n))))
 
 (define (alpha-rename x)
-  x)
+  (alpha-rename-rec x '() 0))
