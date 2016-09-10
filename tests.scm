@@ -53,13 +53,19 @@
     (test (not (eq? (build-var 0) (build-var 1)))))
 
   (suite alpha-rename-rec
-    (test 'x (alpha-rename-rec 'x '() 0))
-    (test (let ((result (alpha-rename-rec '(x x) '() 0)))
+    (test 'x (let-values (((result env n) (alpha-rename-rec 'x '() 0)))
+               result))
+
+    (test (let-values (((result env n) (alpha-rename-rec '(x x) '() 0)))
             (eq? (car result)
                  (car (cdr result)))))
-    (test (let ((result (alpha-rename-rec '(lambda (x) x) '() 0)))
+
+    (test (let-values (((result env n)
+                        (alpha-rename-rec '(lambda (x) x) '() 0)))
             (eq? (abstraction-var result)
                  (abstraction-body result))))
-    (test (let ((result (alpha-rename-rec '((lambda (x) x) x) '() 0)))
+
+    (test (let-values (((result env n)
+                        (alpha-rename-rec '((lambda (x) x) x) '() 0)))
             (not (eq? (abstraction-body (car result))
                       (car (cdr result))))))))
