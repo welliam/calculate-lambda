@@ -1,7 +1,10 @@
 (define-library (lambda-calculator main)
   (import (scheme base))
-  (export calculate-lambda)
+  (export abstraction? calculate-lambda)
   (begin
+    (define (abstraction? x)
+      (and (pair? x)
+           (eq? (car x) 'lambda)))
+
     (define (calculate-lambda x)
       x)))
-
