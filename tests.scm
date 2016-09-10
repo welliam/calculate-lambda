@@ -86,4 +86,8 @@
 
     (test (let ((result (alpha-rename '((lambda (x) x) x))))
             (not (eq? (abstraction-var (car result))
+                      (car (cdr result))))))
+
+    (test (let ((result (alpha-rename '((lambda (x) x) x))))
+            (not (eq? (abstraction-body (car result))
                       (car (cdr result))))))))
