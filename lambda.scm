@@ -15,7 +15,10 @@
   (car (cdr (cdr abs))))
 
 (define (fix x f)
-  x)
+  (let ((x^ (f x)))
+    (if (eq? x x^)
+        x
+        (fix x^ f))))
 
 (define (calculate-lambda x)
   (if (application? x)
