@@ -53,4 +53,7 @@
     (test (not (eq? (build-var 0) (build-var 1)))))
 
   (suite alpha-rename-rec
-    (test 'x (alpha-rename-rec 'x '() 0))))
+    (test 'x (alpha-rename-rec 'x '() 0))
+    (test (let ((result (alpha-rename-rec '(x x) '() 0)))
+            (eq? (car result)
+                 (car (cdr result)))))))
