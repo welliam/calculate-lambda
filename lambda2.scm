@@ -1,6 +1,6 @@
 (define-library (lambda-calculator main)
   (import (scheme base))
-  (export abstraction? application? calculate-lambda)
+  (export abstraction? application? calculate-lambda substitute)
   (begin
     (define (abstraction? x)
       (and (list? x)
@@ -13,4 +13,9 @@
            (= (length x) 2)))
 
     (define (calculate-lambda x)
-      x)))
+      x)
+
+    (define (substitute looking with in)
+      with)))
+
+
