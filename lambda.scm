@@ -47,3 +47,6 @@
 
 (define (build-var n)
   (string->symbol (string-append "var" (number->string n))))
+
+(define (alpha-rename-rec in env n)
+  in)
