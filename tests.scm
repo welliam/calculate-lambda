@@ -94,4 +94,8 @@
 
     (test (let ((result (alpha-rename '((lambda (x) x) x))))
             (eq? (abstraction-body (car result))
-                 (abstraction-var (car result)))))))
+                 (abstraction-var (car result))))))
+
+  (suite normalizes
+    (test 0 (calculate-lambda '((lambda (f) (f 0)) (lambda (x) x))))))
+
