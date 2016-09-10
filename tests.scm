@@ -12,6 +12,7 @@
     (test 0 (calculate-lambda 0)))
 
   (suite applications
+    (test '(x x) (calculate-lambda '(x x)))
     (test '0 (calculate-lambda '((lambda (x) x) 0))))
 
   (suite abstraction?
