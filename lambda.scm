@@ -23,7 +23,9 @@
 (define (lambda-equal? x1 x2)
   (if (abstraction? x1)
       (and (abstraction? x2)
-           (eq? (abstraction-var x1) (abstraction-var x2)))
+           (eq? (abstraction-var x1) (abstraction-var x2))
+           (eq? (abstraction-body x1)
+                (abstraction-body x2)))
       (eq? x1 x2)))
 
 (define (calculate-lambda x)
