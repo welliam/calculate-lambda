@@ -80,4 +80,5 @@
    (else (values (assq-default in env) env n))))
 
 (define (alpha-rename x)
-  (alpha-rename-rec x '() 0))
+  (let-values (((result _ _) (alpha-rename-rec x '() 0)))
+    result))
