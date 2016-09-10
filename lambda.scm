@@ -44,3 +44,6 @@
                             (abstraction-body in)))
    ((eq? looking in) with)
    (else in)))
+
+(define (build-var n)
+  (string->symbol (string-append "var" (number->string n))))
