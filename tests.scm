@@ -101,4 +101,10 @@
 
   (suite fix
     (test 'x (fix 'x (lambda (x) x)))
-    (test 0 (fix 5 (lambda (x) (if (zero? x) x (- x 1)))))))
+    (test 0 (fix 5 (lambda (x) (if (zero? x) x (- x 1)))))
+    (test '(lambda (x) x)
+          (fix '(lambda (x) x)
+               (lambda (x)
+                 (list 'lambda
+                       (list (abstraction-var x))
+                       (abstraction-body x)))))))
