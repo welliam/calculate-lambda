@@ -14,6 +14,9 @@
 (define (abstraction-body abs)
   (car (cdr (cdr abs))))
 
+(define (fix x f)
+  x)
+
 (define (calculate-lambda x)
   (if (application? x)
       (let ((op (calculate-lambda (car x)))
