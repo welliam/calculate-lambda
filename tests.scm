@@ -3,7 +3,7 @@
 (load "test.scm")
 (load "lambda.scm")
 
-(import (test main) (lambda-calculator main))
+(import (test main))
 
 (suite tests
   (suite constants
