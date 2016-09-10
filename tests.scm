@@ -114,4 +114,5 @@
     (test (lambda-equal? 'x 'x))
     (test (not (lambda-equal? 'x 'y)))
     (test (lambda-equal? '(lambda (x) x) '(lambda (x) x)))
-    (test (not (lambda-equal? '(lambda (x) x) '(lambda (y) y))))))
+    (test (not (lambda-equal? '(lambda (x) x) '(lambda (y) y))))
+    (test (not (lambda-equal? '(lambda (x) x) '(lambda (x) (x x)))))))
