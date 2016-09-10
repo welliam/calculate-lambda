@@ -20,6 +20,9 @@
         x
         (fix x^ f))))
 
+(define (lambda-equal? x1 x2)
+  #t)
+
 (define (calculate-lambda x)
   (if (application? x)
       (let ((op (calculate-lambda (car x)))
