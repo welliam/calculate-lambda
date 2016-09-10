@@ -21,9 +21,12 @@
         (list (substitute looking with (car in))
               (substitute looking with (car (cdr in)))))
        ((abstraction? in)
-        (list 'lambda
-              (car (cdr in))
-              (substitute looking with (car (cdr (cdr in))))))
+        (let ((var (car (car (cdr in)))))
+          (if (eq? var looking)
+              in
+              (list 'lambda
+                    (car (cdr in))
+                    (substitute looking with (car (cdr (cdr in))))))))
        ((eq? looking in) with)
        (else in)))))
 
