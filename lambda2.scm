@@ -1,6 +1,9 @@
 (define-library (lambda-calculator main)
   (import (scheme base) (scheme write))
-  (export abstraction? application? calculate-lambda substitute abstraction-var)
+  (export abstraction? application? abstraction-var
+          calculate-lambda
+          substitute substitute-abstraction)
+
   (begin
     (define (abstraction? x)
       (and (list? x)
@@ -17,6 +20,9 @@
 
     (define (calculate-lambda x)
       x)
+
+    (define (substitute-abstraction looking with var body)
+      (list 'lambda (list var) body))
 
     (define (substitute looking with in)
       (cond
